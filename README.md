@@ -1,45 +1,61 @@
-Chess_Mate by Suryaveer Bhandari
+Chess_Mate is a chess move visualizer built using Unity 2020.3 LTS. The application highlights all legal moves for any selected chess piece based on standard rules. It is designed as a logic and architecture showcase, without piece movement or turn-based mechanics.
 
-This project is a chess move visualizer built using Unity 2020.3 LTS. The application highlights all legal moves for any chess piece when clicked, strictly focusing on rule-based movement logic and visual feedback, without implementing actual piece movement or turn-based gameplay.
+Project Goal
+The goal of this project is to demonstrate:
 
--> Project Goal
+Clear object-oriented architecture
 
-The primary objective of this project is to showcase clear object-oriented design, clean separation of responsibilities, and rule-driven logic in a Unity-based 2D environment. The focus is on correctness, maintainability, and structure—not on UI polish or gameplay mechanics.
+Separation of concerns between logic and visuals
 
-Click any piece to view its valid legal moves based on standard chess rules.
-Green dots represent valid move positions.
-Red squares represent enemy pieces that can be captured.
-A red circle appears under the selected piece.
-No piece movement or game rules like turns are implemented intentionally.
-Project Structure and Design Decisions
+Strong foundation for rule-based logic in a 2D Unity environment
 
-Modular Piece Architecture Each chess piece (Pawn, Knight, Bishop, etc.) is a separate class inheriting from a base ChessPiece class. This structure allows:
-Centralized click and highlight logic
-Piece-specific movement logic through overridden methods
-Easy future extension for new behavior (movement, animations, AI)
-Board State Tracking A singleton BoardManager maintains a 2D array (boardState[row, col]) that holds real-time positions of all pieces. This enables:
-Fast collision and capture checking
-Rule enforcement like blocking or capturing
-No reliance on GameObject hierarchy for logic
-UI Highlight Handler All visual feedback (green dot, red square, red circle) is handled by a centralized ChessBoardPlacementHandler script. This ensures:
-Clean separation of visual and logic concerns
-Reusability of prefabs
-Easy future upgrade to animations or effects
-Runtime Tile Initialization The chessboard is composed of GameObjects grouped by rows (Row (0) through Row (7)). Tiles are detected dynamically at runtime and stored in a 2D array for consistent spatial mapping and visual placement.
+This is not a full chess game. The focus is purely on:
 
-Inspector-Driven Setup Each piece's position is defined by serialized row and column fields, making it easy to reposition pieces in the Unity Editor. This also aligns with the tile matrix for automatic snapping.
+Correctness of movement rules
+
+Visualizing legal moves
+
+Clean modular design
 
 How It Works
+Click any piece on the board to see its valid moves
 
-When a piece is clicked:
+Visual feedback:
 
-It clears previous highlights
-Highlights itself with a red circle
-Calculates its legal moves using its own movement logic
-Highlights each valid move as:
-Green dot (if tile is empty)
-Red square (if tile contains an enemy piece)
-Tiles are initialized from the scene based on row naming and tile order, enabling automatic indexing without hardcoding.
+Green dots = legal move tiles
 
-The piece does not move. All logic stops at highlighting to focus entirely on rule-based path visualization.
+Red squares = capturable enemy pieces
 
+Red circle = currently selected piece
+
+No piece actually moves and no game rules like turns, check, or checkmate are implemented intentionally.
+
+Key Architecture & Design Highlights
+Modular Piece System
+Each piece (Pawn, Knight, Bishop, etc.) inherits from a base ChessPiece class.
+
+Movement rules are overridden in each derived class.
+
+Allows centralized click handling with modular movement logic.
+
+Board State Handling
+A singleton BoardManager maintains a 2D array of piece positions.
+
+Enables fast capture/block detection and rule checking.
+
+Logic does not rely on Unity's GameObject hierarchy.
+
+Visual Highlight System
+All visual indicators (dots, squares, circle) are managed by ChessBoardPlacementHandler.
+
+Keeps logic and visuals decoupled for easier maintenance and upgradeability.
+
+Runtime Tile Initialization
+The board consists of GameObjects grouped as rows: Row (0) to Row (7).
+
+Each tile is dynamically indexed into a 2D matrix during runtime.
+
+Inspector-Driven Setup
+Each chess piece has exposed row and column fields.
+
+Simplifies testing by allowing easy repositioning in the Unity Editor.
