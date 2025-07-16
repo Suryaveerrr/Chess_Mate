@@ -1,61 +1,58 @@
-Chess_Mate is a chess move visualizer built using Unity 2020.3 LTS. The application highlights all legal moves for any selected chess piece based on standard rules. It is designed as a logic and architecture showcase, without piece movement or turn-based mechanics.
+# Chess_Mate
 
-Project Goal
-The goal of this project is to demonstrate:
+A chess move visualizer built using **Unity 2020.3 LTS**. This project highlights all legal moves for any clicked chess piece based on standard chess rules. It focuses purely on rule-based logic and visual feedback, with no actual movement or game mechanics like turns or check/checkmate.
 
-Clear object-oriented architecture
+---
 
-Separation of concerns between logic and visuals
+## Features
 
-Strong foundation for rule-based logic in a 2D Unity environment
+**Object-Oriented Design**  
+Each chess piece (Pawn, Knight, Bishop, etc.) inherits from a base `ChessPiece` class. Movement logic is modular and overridden in derived classes for clarity and maintainability.
 
-This is not a full chess game. The focus is purely on:
+**Accurate Rule Logic**  
+Highlights valid moves based on standard chess rules. Capturable enemy pieces and valid empty tiles are distinguished visually.
 
-Correctness of movement rules
+**Visual Feedback System**  
+- Green dots: Valid move positions  
+- Red squares: Capturable enemy pieces  
+- Red circle: Current selected piece  
 
-Visualizing legal moves
+**Board State Tracking**  
+A singleton `BoardManager` maintains a 2D array of the chessboard, enabling fast lookup and rule checks without relying on GameObject hierarchy.
 
-Clean modular design
+**Centralized Visuals**  
+Highlight visuals are handled by a single script (`ChessBoardPlacementHandler`), decoupling logic from visuals and making upgrades easier.
 
-How It Works
-Click any piece on the board to see its valid moves
+**Runtime Tile Mapping**  
+The board is composed of GameObjects grouped as `Row (0)` through `Row (7)` and tiles are indexed dynamically into a 2D grid at runtime.
 
-Visual feedback:
+**Inspector-Based Setup**  
+Each piece uses serialized `row` and `column` values for positioning. This allows easy configuration directly from the Unity Editor.
 
-Green dots = legal move tiles
+---
 
-Red squares = capturable enemy pieces
+## Improvements Over a Basic Visualizer
 
-Red circle = currently selected piece
+| Feature                   | Basic Visualizer          | This Project                         |
+|---------------------------|---------------------------|--------------------------------------|
+| Code Structure            | Monolithic or flat        | Clean OOP with inheritance           |
+| Piece Movement Logic      | Static or hardcoded       | Modular per-piece logic              |
+| Visuals                   | Minimal or none           | Green/Red highlighting system        |
+| Board Handling            | Manual/hardcoded          | 2D grid with dynamic runtime linking |
+| Gameplay                  | Often included            | Intentionally excluded               |
+| UI/UX Separation          | Mixed with logic          | Fully separated                      |
 
-No piece actually moves and no game rules like turns, check, or checkmate are implemented intentionally.
+---
 
-Key Architecture & Design Highlights
-Modular Piece System
-Each piece (Pawn, Knight, Bishop, etc.) inherits from a base ChessPiece class.
+## Tech Stack
 
-Movement rules are overridden in each derived class.
+**Engine:** Unity 2020.3 LTS  
+**Language:** C#  
+**Tools:** Unity Editor, Visual Studio
 
-Allows centralized click handling with modular movement logic.
+---
 
-Board State Handling
-A singleton BoardManager maintains a 2D array of piece positions.
+## Controls
 
-Enables fast capture/block detection and rule checking.
-
-Logic does not rely on Unity's GameObject hierarchy.
-
-Visual Highlight System
-All visual indicators (dots, squares, circle) are managed by ChessBoardPlacementHandler.
-
-Keeps logic and visuals decoupled for easier maintenance and upgradeability.
-
-Runtime Tile Initialization
-The board consists of GameObjects grouped as rows: Row (0) to Row (7).
-
-Each tile is dynamically indexed into a 2D matrix during runtime.
-
-Inspector-Driven Setup
-Each chess piece has exposed row and column fields.
-
-Simplifies testing by allowing easy repositioning in the Unity Editor.
+- Click any piece to see its legal moves
+- Game is static – no movement or turn system is implemented
