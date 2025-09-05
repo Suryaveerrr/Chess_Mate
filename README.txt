@@ -1,17 +1,18 @@
-***CHESS ASSIGNMENT***
+# ♟Chessmate Move Visualizer  
+
+A Unity-based chess visualization project that demonstrates clean **Object-Oriented Programming (OOP)** and **design patterns** while providing an interactive way to visualize chess piece movements.  
+
 ---
-**OOP Inheritance:** All pieces are children of one main BasePiece class.
 
-**OOP Polymorphism:** The game calls GetPossibleMoves() and the right piece logic just works.
+## Features  
 
-**Strategy Pattern:** Each piece has its own move "strategy" – no giant if/else mess!
+- **OOP Inheritance** – All chess pieces inherit from a single `BasePiece` class.  
+- **Polymorphism** – Movement logic is automatically resolved via `GetPossibleMoves()`.  
+- **Strategy Pattern** – Each piece has its own movement strategy (no massive if/else chains).  
+- **Singleton Pattern** – A single `PieceManager` oversees and manages the entire board.  
+- **Clean Code (SRP)** – Each script does exactly one job, following the **Single Responsibility Principle**.  
+- **Enemy Capture Highlighting** – A dedicated **circle prefab** highlights enemy pieces available for capture.  
+- **Helper Utilities** – `ChessBoardPlacementHandler` manages move highlighting.  
+- **Mobile Friendly** – Optimized for **landscape orientation** on mobile.  
 
-**Singleton Pattern:** A single PieceManager controls the whole board state.
-
-**Clean Code (SRP):** Each script has exactly one job to do.
-
-**Enemy Captures:** Uses a separate "circle" prefab to highlight enemy pieces.
-
-**Provided Helpers:** All highlighting is done through the ChessBoardPlacementHandler.
-
-**Landscape Mode:** Project is set up for landscape orientation on mobile.
+---
