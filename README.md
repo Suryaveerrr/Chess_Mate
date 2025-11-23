@@ -11,7 +11,8 @@ This project is not just a game; it is a demonstration of **Object-Oriented Desi
 <img width="626" height="498" alt="image" src="https://github.com/user-attachments/assets/7abf6ad6-1c54-49dd-b5b2-cac6752a5abc" />
 <img width="1096" height="515" alt="image" src="https://github.com/user-attachments/assets/00822d20-c428-4c59-a022-989feae8bc9a" />
 <img width="1093" height="514" alt="image" src="https://github.com/user-attachments/assets/30fb836a-29b4-420a-9116-a204c9091727" />
-![Uploading image.png…]()
+<img width="1097" height="511" alt="image" src="https://github.com/user-attachments/assets/c3dd79b2-e605-44c8-aa7b-eb8f02e4bb37" />
+
 
 
 ---
